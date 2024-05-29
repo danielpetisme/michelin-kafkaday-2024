@@ -24,12 +24,12 @@ Login to [Confluent Cloud](https://confluent.cloud) with the username and passwo
 ![image](images/Home-Confluent-Cloud.png)
 
 Confluent Cloud is organized around the following structure:
-* [Organization](https://docs.confluent.io/cloud/current/access-management/hierarchy/organizations/cloud-organization.html): An organization is a root node in Conflient Cloud.
+* [Organization](https://docs.confluent.io/cloud/current/access-management/hierarchy/organizations/cloud-organization.html): An organization is a root node in Confluent Cloud.
 Usually an organisation represents a company or a subsidiary (one user can be attached to multiple orgs but the billing is made per organisation).
 
 * [Environment](https://docs.confluent.io/cloud/current/access-management/hierarchy/cloud-environments.html): An environment host the technical components like Kafka Clusters, Flink Compute pools or a Schema Registry.
 You can define multiple environments in an organization.
-Usually an environement represents a departement or a a project stage (production vs dev).
+Usually an environment represents a departement or a a project stage (production vs dev).
 
 ![image](images/Environments-Confluent-Cloud.png)
 
@@ -46,12 +46,12 @@ Of course, everything can be done via the [Command Line]((https://docs.confluent
 The following steps will guide you through the creation process, if you want a more complete guide, we highly suggest t have a look to [Manage Kafka Clusters on Confluent Cloud
 ](https://docs.confluent.io/cloud/current/clusters/create-cluster.html)
 
-Let's start from your environement and click on `Create Cluster on my own`.
+Let's start from your environment and click on `Create Cluster on my own`.
 
 ![image](images/Confluent-Cloud.png)
 
 Confluent Cloud proposes different types of Kafka Cluster.
-Each of them have it's own characteristics macthing different requirements
+Each of them have it's own characteristics matching different requirements
 
 ![image](images/Create-Cluster-Confluent-Cloud.png)
 
@@ -65,7 +65,7 @@ Confluent Cloud is available on the [3 main Cloud Providers](https://docs.conflu
 * Google Cloud Platform (aka. GCP)
 
 When you create a cluster in Confluent Cloud, you must specify and cloud provider and region for that cluster.
-Cloud Provider costs are locality-dependant as such, the price of the cluster might be different depending of the provider/region.
+Cloud Provider costs are locality-dependent as such, the price of the cluster might be different depending of the provider/region.
 
 For the workshop scope, you'll be creating your `Basic` cluster on AWS on `eu-west-1`
 ![image](images/Create-Cluster-Confluent-Cloud-Region.png)
@@ -79,7 +79,7 @@ Cluster pricing id defined as:
 ```
 Cluster cost = Confluent Kafka Unit (aka. CKU == compute)/hour + storage/hour + ingress + egress
 ```
-As you cann the actual price of a cluster depends on its usage.
+As you can imagine the actual price of a cluster depends on its usage.
 More details on pricing can be found [here](https://www.confluent.io/confluent-cloud/pricing/).
 
 ![image](images/Create-Cluster-Confluent-Cloud-Cluster-Name.png)
@@ -89,7 +89,7 @@ Your cluster is now created! Let's drill into it.
 
 The cluster dashboard gives us information about the usage of the cluster.
 
-On the righ hand side, you can add metdata to this cluster like a description or tags.
+On the right hand side, you can add metadata to this cluster like a description or tags.
 [Confluent Cloud permits to tags](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#tag-entities-data-and-schemas) all the resources (environments, clusters, topics, connectors, etc.) permitting to search elements by multiple dimensions.
 
 You can also see that the cluster as an ID in the form `lkc-123456`.
@@ -143,7 +143,7 @@ Once the topic created you can got to the Topics UI and check your recently crea
 
 ## 4. Generating dummy data with Kafka Connect DataGen Source Connector
 
-So far we creates a cluster and topic but we don't have data yet flowing... Time to fix this.
+So far we created a cluster and topic but we don't have any data yet flowing... Time to fix this.
 For the scope of the workshop, we'll simulate some incoming data. In order to do this, you will be using Kafka Connect DataGen Source Connector.
 
 Apache Kafka is a pipe, a great one but still a dumb pipe. We need to put data in it. We could use a Kafka Producer to produce data but quite often the data is already present in a 3rd party tool like a database, a queue or even a file. On the other side we could be developing a Kafka Consumer to read data but very likely the data will have to be offload from Kafka to another database, datalake or queue, etc. 
@@ -152,7 +152,7 @@ Sepcific Connectors (ie. plugins) are then deployed on top of Kafka Connect to r
 
 We'll find 2 categories of connectors:
 * Source Connector: Reading data from a system and writing into Kafka
-* Sink Connector: Reading from Kafka adn writing into a system
+* Sink Connector: Reading from Kafka and writing into a system
 
 Confluent provides 120+ self-managed connectors and 70+ fully managed connectors.
 You can find the exhaustive list of connectors on [Confluent Hub](https://www.confluent.io/hub/) repository
@@ -195,7 +195,7 @@ The data formats (`AVRO`, `JSON`, etc.) will be discussed a bit further.
 ![image](images/Add-Datagen-Source-connector-Confluent-Cloud-quickstart.png)
 
 Depending on the performance objective, connectors might need to be scaled out. In this case, multiple instance of the connectors will run in parallel.
-The price of the connector will depend on how much resources it requres.
+The price of the connector will depend on how much resources it requires.
 For the moment, we don't need to scale the datagen connector.
 ![image](images/Add-Datagen-Source-connector-Confluent-sizing.png)
 
@@ -266,7 +266,7 @@ Clicking on the subject name you'll find the same details you had in the Topic's
 ## 6. Getting starting with stream processing
 
 Let's now have a bit of fun with the data.
-The ecosystem of data processing tools is rich (Spark, Kafka Stream, etc.) but one is leading the game: Apache Flink.
+The ecosystem of data processing tools is rich (Spark, Kafka Streams, etc.) but one is leading the game: Apache Flink.
 
 Confluent Cloud provides a fully managed Flink service.
 Just as clusters are managed at the environement level, Flink resources are as well.
@@ -435,4 +435,4 @@ If you end up the lab you now have a clear understanding of:
 * Confluent Flink
 * Confluent Cloud Stream Lineage
 
-From there we suggesr you to attend the advanced Flink Workshop to continue exploring the Data Streaming Platform capabilities.
+From there we suggest you to attend the advanced Flink Workshop to continue exploring the Data Streaming Platform capabilities.
